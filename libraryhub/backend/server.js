@@ -14,7 +14,12 @@ const PORT = process.env.PORT || 5001;
 
 app.use(
   cors({
-    origin: ["http://localhost:3000", "http://127.0.0.1:3000", "http://localhost:5173"],
+    origin: [
+      "http://localhost:3000",
+      "http://127.0.0.1:3000",
+      "http://localhost:5173",
+      "https://library-management-system-gamma-indol.vercel.app",
+    ],
   })
 );
 app.use(express.json());
