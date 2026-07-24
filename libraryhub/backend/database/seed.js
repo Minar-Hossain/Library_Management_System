@@ -25,9 +25,14 @@ async function seed() {
   });
 
   const schemaPath = path.join(__dirname, "schema.sql");
+try {
   console.log("Applying schema...");
   await runSqlFile(schemaPath, bootstrap);
-  await bootstrap.end();
+} catch (err) {
+  console.log("Schema already exists. Skipping schema creation...");
+}
+
+await bootstrap.end();
 
   console.log("Seeding books...");
   for (const b of books) {
