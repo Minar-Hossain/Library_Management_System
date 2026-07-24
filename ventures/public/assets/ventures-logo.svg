@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 220 220" role="img" aria-label="VENTURES logo">
+  <defs>
+    <linearGradient id="g" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0%" stop-color="#0ea5e9" />
+      <stop offset="100%" stop-color="#1d4ed8" />
+    </linearGradient>
+  </defs>
+  <rect width="220" height="220" rx="42" fill="#040711" />
+  <path d="M46 52h30l34 95 35-95h29l-52 130h-25z" fill="url(#g)" />
+  <text x="110" y="188" fill="#f8fafc" font-family="Segoe UI, Arial, sans-serif" font-size="24" text-anchor="middle">VENTURES</text>
+</svg>

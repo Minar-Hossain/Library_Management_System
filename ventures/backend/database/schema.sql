@@ -1,0 +1,96 @@
+CREATE DATABASE IF NOT EXISTS ventures_db;
+USE ventures_db;
+
+-- USERS
+CREATE TABLE users (
+  userId VARCHAR(100) PRIMARY KEY,
+  email VARCHAR(150),
+  passwordHash VARCHAR(255),
+  firstName VARCHAR(100),
+  lastName VARCHAR(100),
+  phoneNumber VARCHAR(30),
+  location VARCHAR(150),
+  role VARCHAR(50),
+  createdAt TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+  updatedAt TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+);
+
+-- PRODUCTS
+CREATE TABLE products (
+  productId VARCHAR(100) PRIMARY KEY,
+  name VARCHAR(150),
+  description TEXT,
+  brand VARCHAR(100),
+  category VARCHAR(50),
+  size VARCHAR(50),
+  color VARCHAR(50),
+  price FLOAT,
+  stock INT,
+  image VARCHAR(255),
+  isActive BOOLEAN DEFAULT TRUE,
+  createdAt TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+  updatedAt TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+);
+
+-- ADMIN LOGS
+CREATE TABLE admin_logs (
+  logId VARCHAR(100) PRIMARY KEY,
+  adminId VARCHAR(100),
+  action VARCHAR(255),
+  targetId VARCHAR(100),
+  createdAt TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+  FOREIGN KEY (adminId) REFERENCES users(userId)
+);
+
+-- ORDERS
+CREATE TABLE orders (
+  orderId VARCHAR(100) PRIMARY KEY,
+  userId VARCHAR(100),
+  fullName VARCHAR(150),
+  phoneNumber VARCHAR(30),
+  shippingAddress TEXT,
+  totalAmount FLOAT,
+  status VARCHAR(50),
+  createdAt TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+  FOREIGN KEY (userId) REFERENCES users(userId)
+);
+
+-- ORDER ITEMS
+CREATE TABLE order_items (
+  orderItemId VARCHAR(100) PRIMARY KEY,
+  orderId VARCHAR(100),
+  productId VARCHAR(100),
+  productName VARCHAR(150),
+  size VARCHAR(50),
+  color VARCHAR(50),
+  quantity INT,
+  priceSnapshot FLOAT,
+  FOREIGN KEY (orderId) REFERENCES orders(orderId),
+  FOREIGN KEY (productId) REFERENCES products(productId)
+);
+
+-- REVIEWS
+CREATE TABLE reviews (
+  reviewId VARCHAR(100) PRIMARY KEY,
+  userId VARCHAR(100),
+  productId VARCHAR(100),
+  rating INT,
+  comment TEXT,
+  createdAt TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+  FOREIGN KEY (userId) REFERENCES users(userId),
+  FOREIGN KEY (productId) REFERENCES products(productId)
+);
+
+-- CART
+CREATE TABLE cart (
+  cartId VARCHAR(100) PRIMARY KEY,
+  userId VARCHAR(100),
+  productId VARCHAR(100),
+  quantity INT,
+  size VARCHAR(50),
+  color VARCHAR(50),
+  priceSnapshot FLOAT,
+  updatedAt TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  FOREIGN KEY (userId) REFERENCES users(userId),
+  FOREIGN KEY (productId) REFERENCES products(productId)
+);

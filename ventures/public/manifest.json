@@ -1,0 +1,15 @@
+{
+  "short_name": "VENTURES",
+  "name": "VENTURES Premium Shoe Store",
+  "icons": [
+    {
+      "src": "assets/ventures-logo.png",
+      "type": "image/png",
+      "sizes": "192x192"
+    }
+  ],
+  "start_url": ".",
+  "display": "standalone",
+  "theme_color": "#05070d",
+  "background_color": "#05070d"
+}

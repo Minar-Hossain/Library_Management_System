@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 220 220" role="img" aria-label="URBANWEAR logo">
+  <rect width="220" height="220" rx="28" fill="#0f172a"/>
+  <path d="M55 75h110l-18 70H73L55 75z" fill="#3b82f6"/>
+  <path d="M70 95h80l-12 35H82L70 95z" fill="#93c5fd"/>
+  <text x="110" y="188" fill="#f8fafc" font-family="Segoe UI, Arial, sans-serif" font-size="20" text-anchor="middle">URBANWEAR</text>
+</svg>

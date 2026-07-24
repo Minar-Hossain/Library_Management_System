@@ -1,0 +1,15 @@
+{
+  "short_name": "URBANWEAR",
+  "name": "URBANWEAR Modern Clothing Store",
+  "icons": [
+    {
+      "src": "assets/logo.svg",
+      "sizes": "any",
+      "type": "image/svg+xml"
+    }
+  ],
+  "start_url": ".",
+  "display": "standalone",
+  "theme_color": "#0a0a0f",
+  "background_color": "#05070d"
+}
